@@ -3,8 +3,8 @@
 #### Install Melonloader first. Put the .dll into the mods folder where your Chillout game is located. Usually at /steamapps/common/ChilloutVR/Mods
 
 ### Customization:
-#### In the Nocturnal folder from CVR directory u will have a file called PlatesManagerConfig.Json
-#### Wen u will open u will see multiple stuff:
+#### Can manually set colors and other values in PlatesManagerConfig.Json
+#### Eventually I'll create an in-game menu
 #### DefaultColor: The RGB color for most players, default blue.
 #### FriendsColor: The RGB color for friends, default yellow.
 
