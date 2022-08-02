@@ -51,8 +51,9 @@ namespace CVRNameplates
             _handler.MicOn.SetActive(true);
             _handler.MicOff.SetActive(false);
             if (obj.Amplitude > 0.1f) return;
-            _handler.BackgroundMask.color = new Color(_handler.UserColor.r, _handler.UserColor.g, _handler.UserColor.b, 1f);
-            _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r * 1.2f, _handler.UserColor.g * 1.2f, _handler.UserColor.b * 1.2f, 1f);
+            _handler.BackgroundMask.color = new Color(_handler.UserColor.r * 1.5f, _handler.UserColor.g * 1.5f, _handler.UserColor.b * 1.5f, 1f);
+            _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r * 1.3f, _handler.UserColor.g * 1.3f, _handler.UserColor.b * 1.3f, 1f);
+            _handler.BackgroundImageComp.transform.localScale = new Vector3(1.5f, 1.3f, 1);
             _handler.BackgroundImageComp.fillAmount = 1f;
         }
 

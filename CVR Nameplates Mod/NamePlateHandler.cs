@@ -78,7 +78,7 @@ namespace CVRNameplates
 
             MicOn = GameObject.Instantiate(MicOff, _friendIcon.transform.parent.transform);
             _micOnImage = MicOn.GetComponent<UnityEngine.UI.Image>();
-            _micOnColor = new Color(UserColor.r * 1.2f, UserColor.g * 1.2f, UserColor.b * 1.2f);
+            _micOnColor = new Color(UserColor.r * 1.3f, UserColor.g * 1.3f, UserColor.b * 1.3f);
             _micOnImage.material.color = _micOnColor;
             _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = UserColor;
             MicOn.transform.localPosition = new Vector3(0.944f, 0.39f, 0);
