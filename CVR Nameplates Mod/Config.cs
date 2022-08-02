@@ -42,11 +42,11 @@ namespace CVRNameplates
                     {
                         DefaultColor = new int[] { 88, 174, 228 },
                         FriendsColor = new int[] { 249, 218, 19 },
-                        Background = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/Edward7s/Nocturnal-CVR-Plates-ReWorker/master/Icons/namepalte%20(1).png")),
-                        Icon = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/Edward7s/Nocturnal-CVR-Plates-ReWorker/master/Icons/iconbackground.png")),
-                        MicIconOn = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/Edward7s/Nocturnal-CVR-Plates-ReWorker/master/Icons/Mic%20On.png")),
-                        MicIconOff = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/Edward7s/Nocturnal-CVR-Plates-ReWorker/master/Icons/micoff.png")),
-                        Friend = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/Edward7s/Nocturnal-CVR-Plates-ReWorker/master/Icons/friendIcon.png")),
+                        Background = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/namepalte%20(1).png")),
+                        Icon = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/iconbackground.png")),
+                        MicIconOn = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/Mic%20On.png")),
+                        MicIconOff = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/micoff.png")),
+                        Friend = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/friendIcon.png")),
                     }));
                     wc.Dispose();
                 }
