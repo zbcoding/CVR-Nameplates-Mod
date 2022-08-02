@@ -10,4 +10,5 @@
 
 #### Nameplates will glow and the mic icon will change when players are talking.
 ## Preview
-![unknown (3)](https://user-images.githubusercontent.com/74219635/181791338-8252ff10-25fa-4285-bd22-3ad094986b91.png)
+![example mic off 1](https://user-images.githubusercontent.com/56856630/182332081-d5fced99-0a36-48f5-9528-713d444784b2.png)
+![example mic on 1](https://user-images.githubusercontent.com/56856630/182332082-aeea3186-19d4-42ee-b74f-7d149a662c33.png)
