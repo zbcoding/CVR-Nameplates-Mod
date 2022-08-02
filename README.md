@@ -1,21 +1,14 @@
-# ChilloutVR Reworked Plates
+# ChilloutVR Nameplates Mod
 
-## Remade The ChilloutVR Plates
+#### Install Melonloader first. Put the .dll into the mods folder where your Chillout game is located. Usually at /steamapps/common/ChilloutVR/Mods
 
-### How to use it:
-#### => U will need melonloader or BepinEx for it.
-#### => Melonloader: Drag the ml dll into the mods folder.
-#### => BepInEx: Drag the BepInEx dll into the plugins folder from the BepInEx directory.
-
-### Customazation:
+### Customization:
 #### In the Nocturnal folder from CVR directory u will have a file called PlatesManagerConfig.Json
 #### Wen u will open u will see multiple stuff:
-#### The DefaultColor its the color every player except your friends will have. (The Color Its RGB)
-#### The FriendsColor its the color only your friends will have. (The Color Its RGB)
+#### DefaultColor: The RGB color for most players, default blue.
+#### FriendsColor: The RGB color for friends, default yellow.
 
-#### Nameplates will glow wen someone is talking, and also the microphone icon will change wen they talk.
+#### Nameplates will glow and the mic icon will change when players are talking.
 ## Preview
 ![unknown (2)](https://user-images.githubusercontent.com/74219635/181791289-9382d5f0-c441-4432-b34e-23cc2ffe2db5.png)
 ![unknown (3)](https://user-images.githubusercontent.com/74219635/181791338-8252ff10-25fa-4285-bd22-3ad094986b91.png)
-
-###### I do not affiliate with ABI and the mod is not supported by ABI.
