@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
-namespace Nocturnal
+
+namespace CVRNameplates
 {
-    internal static class Extention
+    internal static class Extension
     {
         private static Texture2D _Texture2d { get; set; }
         internal static Image ChangeSpriteFromString(this Image Image, string ImageBase64, int pixels = 200, Vector4 border = new Vector4())

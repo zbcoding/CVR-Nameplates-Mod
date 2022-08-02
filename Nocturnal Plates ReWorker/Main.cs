@@ -5,17 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using MelonLoader;
 using Harmony;
+using HarmonyLib;
 using ABI_RC.Core.Player;
 using System.Reflection;
 using ABI_RC.Core;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-namespace Nocturnal
+
+namespace CVRNameplates
 {
     public class Main : MelonMod
     {
-        private static HarmonyInstance Instance  = new HarmonyInstance(Guid.NewGuid().ToString());
+        private static HarmonyLib.Harmony Instance  = new HarmonyLib.Harmony(Guid.NewGuid().ToString());
         internal static Config s_config { get; set; }
         public override void OnApplicationStart()
         {
@@ -42,6 +44,7 @@ namespace Nocturnal
             _handler.MicOn.SetActive(false);
             _handler.MicOff.SetActive(true);
         }
+
         private void PlayerTalking(Dissonance.VoicePlayerState obj)
         {
             _handler = GameObject.Find($"/{obj.Name}").transform.Find("[NamePlate]").gameObject.GetComponent<NamePlateHandler>();
@@ -49,7 +52,8 @@ namespace Nocturnal
             _handler.MicOff.SetActive(false);
             if (obj.Amplitude > 0.1f) return;
             _handler.BackgroundMask.color = new Color(_handler.UserColor.r, _handler.UserColor.g, _handler.UserColor.b, 1f);
-            _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r, _handler.UserColor.g, _handler.UserColor.b, 1f);
+            _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r * 1.2f, _handler.UserColor.g * 1.2f, _handler.UserColor.b * 1.2f, 1f);
+            _handler.BackgroundImageComp.fillAmount = 1f;
         }
 
         private static void HPatch() =>

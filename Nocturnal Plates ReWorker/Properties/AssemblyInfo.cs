@@ -6,16 +6,16 @@ using MelonLoader;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Nocturnal Plates ReWorker")]
+[assembly: AssemblyTitle("CVRNameplates")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Nocturnal Plates ReWorker")]
+[assembly: AssemblyProduct("CVRNameplates")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: MelonInfo(typeof(Nocturnal.Main), "Nocturnal Better NamePlates", "1", "Edward7")]
+[assembly: MelonInfo(typeof(CVRNameplates.Main), "CVRNameplatesMod", "1", "zbcoding")]
 [assembly: MelonColor(System.ConsoleColor.DarkMagenta)]
 [assembly: MelonGame("Alpha Blend Interactive", "ChilloutVR")]
 // Setting ComVisible to false makes the types in this assembly not visible
