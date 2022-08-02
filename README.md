@@ -14,7 +14,7 @@ Nameplates with rounded corners and similar colors.
 #### Can manually set colors and other values in PlatesManagerConfig.Json
 #### Eventually I'll create an in-game menu
 #### DefaultColor: The RGB color for most players, default blue.
-#### FriendsColor: The RGB color for friends, default yellow.
+#### FriendsColor: The RGB color for friends, default green.
 
 
 
