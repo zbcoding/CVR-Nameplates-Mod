@@ -13,8 +13,7 @@ Nameplates with rounded corners and similar (blue or green) colors. Nameplates g
 #### Install Melonloader first separately, or with [CVRMelonAssistant](https://github.com/UnusualNorm/CVRMelonAssistant). Put the .dll into the mods folder where your Chillout game is located. Usually at /steamapps/common/ChilloutVR/Mods
 
 ## Customization:
-#### Can manually set colors and other values in PlatesManagerConfig.Json
-#### Eventually I'll create an in-game menu
+#### Eventually there will be an in-game menu. For now, you can set colors and other values in PlatesManagerConfig.Json
 #### DefaultColor: The RGB color for most players, default blue.
 #### FriendsColor: The RGB color for friends, default green.
 
