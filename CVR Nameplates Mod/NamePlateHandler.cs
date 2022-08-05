@@ -83,6 +83,10 @@ namespace CVRNameplates
             _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = UserColor;
             MicOn.transform.localPosition = new Vector3(0.944f, 0.39f, 0);
 
+            //Nametags start with mic off icon until updated by event
+            MicOn.SetActive(false);
+            MicOff.SetActive(true);
+
             if (UserColor == Main.s_config.DefaultColor) _friend.enabled = false;
 
             _friend = null;

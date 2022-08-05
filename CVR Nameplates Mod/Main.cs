@@ -19,6 +19,7 @@ namespace CVRNameplates
     {
         private static HarmonyLib.Harmony Instance  = new HarmonyLib.Harmony(Guid.NewGuid().ToString());
         internal static Config s_config { get; set; }
+        private NamePlateHandler _handler { get; set; }
         public override void OnApplicationStart()
         {
             s_config = new Config();
@@ -33,8 +34,6 @@ namespace CVRNameplates
             RootLogic.Instance.comms.OnPlayerStoppedSpeaking += PlayerStopTalking;
             yield break;
         }
-
-        private NamePlateHandler _handler { get; set; }
 
         private void PlayerStopTalking(Dissonance.VoicePlayerState obj)
         {      
@@ -60,8 +59,6 @@ namespace CVRNameplates
         private static void HPatch() =>
             Instance.Patch(typeof(PlayerNameplate).GetMethod(nameof(PlayerNameplate.UpdateNamePlate)),null, typeof(Main).GetMethod(nameof(PostFix), System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).ToNewHarmonyMethod());
         
-
-
         private static void PostFix(PlayerNameplate __instance) =>       
             __instance.gameObject.AddComponent<NamePlateHandler>();
         
