@@ -1,5 +1,5 @@
 # ChilloutVR Nameplates Mod
-Nameplates with rounded corners and similar colors.
+Nameplates with rounded corners and similar (blue or green) colors. Nameplates glow and mic icon changes if player is speaking. Friends have an icon on their nameplates.
 
 ## Preview:
 ##### Default Player, Mic Off
