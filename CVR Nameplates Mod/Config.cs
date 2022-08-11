@@ -15,6 +15,11 @@ namespace CVRNameplates
     {
         public int[] DefaultColor { get; set; }
         public int[] FriendsColor { get; set; }
+        public int[] LegendColor { get; set; }
+        public int[] DevColor { get; set; }
+        public int[] ModColor { get; set; }
+        public int[] GuideColor { get; set; }
+
         public string Background { get; set; }
         public string Icon { get; set; }
         public string MicIconOn { get; set; }
@@ -22,12 +27,23 @@ namespace CVRNameplates
         public string Friend { get; set; }
     }
 
+    static class UserRanks
+    {
+        public const string Mod = "Moderator";
+        public const string Dev = "Developer";
+        public const string Guide = "Community Guide";
+        public const string Legend = "Legend";
+    }
 
     internal class Config
     {
         public Json Js { get; set; }
         public Color DefaultColor { get; set; }
         public Color FriendsColor { get; set; }
+        public Color DevColor { get; set; }
+        public Color ModColor { get; set; }
+        public Color GuideColor { get; set; }
+        public Color LegendColor { get; set; }
 
         public Config()
         {
@@ -40,8 +56,12 @@ namespace CVRNameplates
                 {
                     File.WriteAllText(Directory.GetCurrentDirectory() + "//CVR-Nameplates//PlatesManagerConfig.Json", JsonConvert.SerializeObject(new Json()
                     {
-                        DefaultColor = new int[] { 88, 174, 228 },
-                        FriendsColor = new int[] { 249, 218, 19 },
+                        DefaultColor = new int[] { 0, 128, 255 }, //blue
+                        FriendsColor = new int[] { 0, 255, 128 }, //green
+                        ModColor = new int[] { 255, 0, 0 }, //red
+                        DevColor = new int[] { 229, 17, 15 }, //cvr orange
+                        GuideColor = new int[] { 102, 0, 204 }, //purple
+                        LegendColor = new int[] { 255, 153, 51 }, //orange
                         Background = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/namepalte%20(1).png")),
                         Icon = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/iconbackground.png")),
                         MicIconOn = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/Mic%20On.png")),

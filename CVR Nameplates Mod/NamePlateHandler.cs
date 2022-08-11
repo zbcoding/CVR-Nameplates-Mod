@@ -1,9 +1,11 @@
-﻿using ABI_RC.Core.Networking.IO.Social;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ABI_RC.Core.Player;
+using ABI_RC.Core.Networking;
+using ABI_RC.Core.Networking.IO.Social;
 using UnityEngine;
 
 namespace CVRNameplates
@@ -25,7 +27,6 @@ namespace CVRNameplates
         private UnityEngine.UI.Image _micOnImage { get; set; }
         private UnityEngine.UI.Image _friend { get; set; }
 
-
         void Start() => InvokeRepeating(nameof(Setup), -1, 0.3f);
          private void Setup()
          {
@@ -35,8 +36,33 @@ namespace CVRNameplates
             }
             catch { return; }
 
-            UserColor = Friends.List.Where(x => x.UserId == this.transform.parent.gameObject.name).FirstOrDefault() != null ? Main.s_config.FriendsColor : Main.s_config.DefaultColor;
-            _backgroundGameObject = this.transform.Find("Canvas/Content/Image").gameObject;
+            //set color of nameplate depending on user
+            if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
+                .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+                UserColor = Main.s_config.FriendsColor;
+            else
+            {
+                String userRank = this.transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank;
+                if (userRank == UserRanks.Mod)
+                {
+                    UserColor = Main.s_config.ModColor;
+                }
+                else if (userRank == UserRanks.Dev)
+                {
+                    UserColor = Main.s_config.DevColor;     
+                }
+                else if (userRank == UserRanks.Guide)
+                {
+                    UserColor = Main.s_config.GuideColor;
+                }
+                else if (userRank == UserRanks.Legend)
+                {
+                    UserColor = Main.s_config.LegendColor;
+                }
+                else UserColor = Main.s_config.DefaultColor;
+            }
+
+                _backgroundGameObject = this.transform.Find("Canvas/Content/Image").gameObject;
             Component.DestroyImmediate(_backgroundGameObject.GetComponent<UnityEngine.UI.Image>());
 
             BackgroundImageComp = _backgroundGameObject.AddComponent<UnityEngine.UI.Image>();

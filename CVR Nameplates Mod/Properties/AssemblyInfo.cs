@@ -15,7 +15,7 @@ using MelonLoader;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-[assembly: MelonInfo(typeof(CVRNameplates.Main), "CVRNameplatesMod", "0.1.1", "zbcoding")]
+[assembly: MelonInfo(typeof(CVRNameplates.Main), "CVRNameplatesMod", "0.1.2", "zbcoding")]
 [assembly: MelonColor(System.ConsoleColor.DarkMagenta)]
 [assembly: MelonGame("Alpha Blend Interactive", "ChilloutVR")]
 // Setting ComVisible to false makes the types in this assembly not visible

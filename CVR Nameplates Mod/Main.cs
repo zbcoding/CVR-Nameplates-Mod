@@ -17,7 +17,7 @@ namespace CVRNameplates
 {
     public class Main : MelonMod
     {
-        private static HarmonyLib.Harmony Instance  = new HarmonyLib.Harmony(Guid.NewGuid().ToString());
+        private static HarmonyLib.Harmony Instance = new HarmonyLib.Harmony(Guid.NewGuid().ToString());
         internal static Config s_config { get; set; }
         private NamePlateHandler _handler { get; set; }
         public override void OnApplicationStart()
@@ -50,7 +50,9 @@ namespace CVRNameplates
             _handler.MicOn.SetActive(true);
             _handler.MicOff.SetActive(false);
             if (obj.Amplitude > 0.1f) return;
-            _handler.BackgroundMask.color = new Color(_handler.UserColor.r * 1.5f, _handler.UserColor.g * 1.5f, _handler.UserColor.b * 1.5f, 1f);
+            //circle around profile picture
+            _handler.BackgroundMask.color = new Color(_handler.UserColor.r * 1.3f, _handler.UserColor.g * 1.3f, _handler.UserColor.b * 1.3f, 1f);
+            //nameplate outline
             _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r * 1.3f, _handler.UserColor.g * 1.3f, _handler.UserColor.b * 1.3f, 1f);
             _handler.BackgroundImageComp.transform.localScale = new Vector3(1.5f, 1.3f, 1);
             _handler.BackgroundImageComp.fillAmount = 1f;
