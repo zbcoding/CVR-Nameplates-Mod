@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace CVRNameplates
 {
-    internal class NamePlateHandler : MonoBehaviour
+    internal class NamePlateHandler : MonoBehaviour, IDisposable
     {
         private GameObject _maskGameObject { get; set; }
         private UnityEngine.UI.Image _maskImageComp { get; set; }
@@ -38,8 +38,10 @@ namespace CVRNameplates
 
             //set color of nameplate depending on user
             if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+            {
                 UserColor = Main.s_config.FriendsColor;
+            }
             else
             {
                 String userRank = this.transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank;
@@ -65,6 +67,7 @@ namespace CVRNameplates
                 _backgroundGameObject = this.transform.Find("Canvas/Content/Image").gameObject;
             Component.DestroyImmediate(_backgroundGameObject.GetComponent<UnityEngine.UI.Image>());
 
+            //nameplate outline
             BackgroundImageComp = _backgroundGameObject.AddComponent<UnityEngine.UI.Image>();
             BackgroundImageComp.type = UnityEngine.UI.Image.Type.Sliced;
             BackgroundImageComp.pixelsPerUnitMultiplier = 500;
@@ -83,6 +86,7 @@ namespace CVRNameplates
             _backgroundGameObj = this.transform.Find("Canvas/Content/Image/ObjectMaskSlave/UserImageMask (1)").gameObject;
             Component.DestroyImmediate(_backgroundGameObj.GetComponent<UnityEngine.UI.Image>());
 
+            //outline around profile picture
             BackgroundMask = _backgroundGameObj.AddComponent<UnityEngine.UI.Image>();
             BackgroundMask.color = UserColor;
             BackgroundMask.ChangeSpriteFromString(Main.s_config.Js.Icon);
@@ -95,7 +99,7 @@ namespace CVRNameplates
             _friendIcon.transform.localPosition = new Vector3(0.60f, 0.39f, 0);
             _friend = _friendIcon.GetComponent<UnityEngine.UI.Image>();
             _friend.ChangeSpriteFromString(Main.s_config.Js.Friend).color = UserColor;
-            _friend.enabled = true;
+            _friend.enabled = true; //friend AND mic icon object
 
             MicOff = GameObject.Instantiate(_friendIcon, _friendIcon.transform.parent.transform);
             _micOffImage = MicOff.GetComponent<UnityEngine.UI.Image>();
@@ -104,6 +108,7 @@ namespace CVRNameplates
 
             MicOn = GameObject.Instantiate(MicOff, _friendIcon.transform.parent.transform);
             _micOnImage = MicOn.GetComponent<UnityEngine.UI.Image>();
+            //change color tint/brightness of mic icon by 30% if player is speaking
             _micOnColor = new Color(UserColor.r * 1.3f, UserColor.g * 1.3f, UserColor.b * 1.3f);
             _micOnImage.material.color = _micOnColor;
             _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = UserColor;
@@ -113,8 +118,19 @@ namespace CVRNameplates
             MicOn.SetActive(false);
             MicOff.SetActive(true);
 
-            if (UserColor == Main.s_config.DefaultColor) _friend.enabled = false;
+            if (UserColor != Main.s_config.FriendsColor) _friend.enabled = false;
+            else _friend.enabled = true;
 
+            if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
+                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) == null)
+            {
+                _friend.enabled = false;
+            }
+
+            Dispose();
+         }
+        public void Dispose()
+        {
             _friend = null;
             _micOnImage = null;
             _micOffImage = null;
@@ -124,6 +140,6 @@ namespace CVRNameplates
             _backgroundGameObj = null;
             _friendIcon = null;
             CancelInvoke(nameof(Setup));
-         }
+        }
     }
 }

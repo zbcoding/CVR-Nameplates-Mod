@@ -53,6 +53,7 @@ namespace CVRNameplates
             //circle around profile picture
             _handler.BackgroundMask.color = new Color(_handler.UserColor.r * 1.3f, _handler.UserColor.g * 1.3f, _handler.UserColor.b * 1.3f, 1f);
             //nameplate outline
+            //change color tint/brightness of nameplate by 30% if player is speaking
             _handler.BackgroundImageComp.color = new Color(_handler.UserColor.r * 1.3f, _handler.UserColor.g * 1.3f, _handler.UserColor.b * 1.3f, 1f);
             _handler.BackgroundImageComp.transform.localScale = new Vector3(1.5f, 1.3f, 1);
             _handler.BackgroundImageComp.fillAmount = 1f;
