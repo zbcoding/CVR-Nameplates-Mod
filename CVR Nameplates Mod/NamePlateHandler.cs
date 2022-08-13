@@ -53,11 +53,12 @@ namespace CVRNameplates
             else if (userRank == UserRanks.Legend)
             {
                 UserColor = Main.s_config.LegendColor;
-            }  
+            }
+            //developers and other special ranks will keep their color
+            //friend users will get friend color
             else if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                    .FirstOrDefault(x => x.UserId == transform.parent.gameObject.name) != null
-                    && userRank == UserRanks.User
-                    )
+                        .FirstOrDefault(x => x.UserId == transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId) != null
+                    && transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank == UserRanks.User)
             {
                 UserColor = Main.s_config.FriendsColor;
             }
@@ -98,7 +99,7 @@ namespace CVRNameplates
             _friendIcon.transform.localPosition = new Vector3(0.60f, 0.39f, 0);
             _friend = _friendIcon.GetComponent<UnityEngine.UI.Image>();
             _friend.ChangeSpriteFromString(Main.s_config.Js.Friend).color = UserColor;
-            _friend.enabled = true; //friend AND mic icon object
+            _friend.enabled = true; //set to true for mic icons instantiation
 
             MicOff = GameObject.Instantiate(_friendIcon, _friendIcon.transform.parent.transform);
             _micOffImage = MicOff.GetComponent<UnityEngine.UI.Image>();
@@ -107,19 +108,19 @@ namespace CVRNameplates
 
             MicOn = GameObject.Instantiate(MicOff, _friendIcon.transform.parent.transform);
             _micOnImage = MicOn.GetComponent<UnityEngine.UI.Image>();
-            //change color tint/brightness of mic icon by 30% if player is speaking
+            //change color tint/brightness of mic icon by +30% if player is speaking
             _micOnColor = new Color(UserColor.r * 1.3f, UserColor.g * 1.3f, UserColor.b * 1.3f);
-            _micOnImage.material.color = _micOnColor;
-            _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = UserColor;
+            _micOnImage.material.color = _micOnColor; //review this line
+            _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = _micOnColor;
             MicOn.transform.localPosition = new Vector3(0.944f, 0.39f, 0);
 
             //Nametags start with mic off icon until updated by voice event
             MicOn.SetActive(false);
             MicOff.SetActive(true);
 
-            //friend icon off unless account is friend
+            //at this point, friend icon set to off unless account is friend
             if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+                    .FirstOrDefault(x => x.UserId == transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId) != null)
             {
                 _friend.enabled = true;
             } 
