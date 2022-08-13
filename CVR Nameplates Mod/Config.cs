@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net;
 using UnityEngine;
+using System.Reflection;
 
 namespace CVRNameplates
 {
@@ -19,7 +20,6 @@ namespace CVRNameplates
         public int[] DevColor { get; set; }
         public int[] ModColor { get; set; }
         public int[] GuideColor { get; set; }
-
         public string Background { get; set; }
         public string Icon { get; set; }
         public string MicIconOn { get; set; }
@@ -56,12 +56,12 @@ namespace CVRNameplates
                 {
                     File.WriteAllText(Directory.GetCurrentDirectory() + "//CVR-Nameplates//PlatesManagerConfig.Json", JsonConvert.SerializeObject(new Json()
                     {
-                        DefaultColor = new int[] { 0, 128, 255 }, //blue
-                        FriendsColor = new int[] { 0, 255, 128 }, //green
-                        ModColor = new int[] { 255, 0, 0 }, //red
+                        DefaultColor = new int[] { 1, 128, 255 }, //blue
+                        FriendsColor = new int[] { 1, 204, 1 }, //green
+                        ModColor = new int[] { 233, 1, 1 }, //red
                         DevColor = new int[] { 229, 17, 15 }, //cvr orange
                         GuideColor = new int[] { 102, 0, 204 }, //purple
-                        LegendColor = new int[] { 255, 153, 51 }, //orange
+                        LegendColor = new int[] { 253, 153, 51 }, //orange
                         Background = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/namepalte%20(1).png")),
                         Icon = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/iconbackground.png")),
                         MicIconOn = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/Mic%20On.png")),
