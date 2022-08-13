@@ -29,7 +29,7 @@ namespace CVRNameplates
 
         private IEnumerator WaitForUi()
         {
-            while (RootLogic.Instance == null) yield return new WaitForSeconds(1f);
+            while (RootLogic.Instance == null) yield return new WaitForSeconds(.3f);
             RootLogic.Instance.comms.OnPlayerStartedSpeaking += PlayerTalking;
             RootLogic.Instance.comms.OnPlayerStoppedSpeaking += PlayerStopTalking;
             yield break;

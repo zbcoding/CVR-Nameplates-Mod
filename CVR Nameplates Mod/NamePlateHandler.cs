@@ -44,7 +44,7 @@ namespace CVRNameplates
             }
             else if (userRank == UserRanks.Dev)
             {
-                UserColor = Main.s_config.DevColor;     
+                UserColor = Main.s_config.DevColor;                                         
             }
             else if (userRank == UserRanks.Guide)
             {
@@ -56,8 +56,7 @@ namespace CVRNameplates
             }
             //developers and other special ranks will keep their color
             //friend users will get friend color
-            else if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                        .FirstOrDefault(x => x.UserId == transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId) != null
+            else if (Friends.FriendsWith(transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId)
                     && transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank == UserRanks.User)
             {
                 UserColor = Main.s_config.FriendsColor;
@@ -119,8 +118,7 @@ namespace CVRNameplates
             MicOff.SetActive(true);
 
             //at this point, friend icon set to off unless account is friend
-            if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                    .FirstOrDefault(x => x.UserId == transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId) != null)
+            if (Friends.FriendsWith(transform.parent.gameObject.GetComponent<PlayerDescriptor>().ownerId))
             {
                 _friend.enabled = true;
             } 
