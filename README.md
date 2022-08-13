@@ -2,6 +2,7 @@
 Nameplates with rounded corners and similar (blue or green) colors. Nameplates glow and mic icon changes if player is speaking. Friends have an icon on their nameplates.
 
 ## Preview:
+Screenshots need updating, but this is the general idea.
 ##### Default Player, Mic Off
 ![example mic off 1](https://user-images.githubusercontent.com/56856630/182332081-d5fced99-0a36-48f5-9528-713d444784b2.png)
 ##### Default Player, Mic On
