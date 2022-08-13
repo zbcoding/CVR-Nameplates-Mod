@@ -37,34 +37,33 @@ namespace CVRNameplates
             catch { return; }
 
             //set color of nameplate depending on user
-            if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+            String userRank = transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank;
+            if (userRank == UserRanks.Mod)
+            {
+                UserColor = Main.s_config.ModColor;
+            }
+            else if (userRank == UserRanks.Dev)
+            {
+                UserColor = Main.s_config.DevColor;     
+            }
+            else if (userRank == UserRanks.Guide)
+            {
+                UserColor = Main.s_config.GuideColor;
+            }
+            else if (userRank == UserRanks.Legend)
+            {
+                UserColor = Main.s_config.LegendColor;
+            }  
+            else if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
+                    .FirstOrDefault(x => x.UserId == transform.parent.gameObject.name) != null
+                    && userRank == UserRanks.User
+                    )
             {
                 UserColor = Main.s_config.FriendsColor;
             }
-            else
-            {
-                String userRank = this.transform.parent.gameObject.GetComponent<PlayerDescriptor>().userRank;
-                if (userRank == UserRanks.Mod)
-                {
-                    UserColor = Main.s_config.ModColor;
-                }
-                else if (userRank == UserRanks.Dev)
-                {
-                    UserColor = Main.s_config.DevColor;     
-                }
-                else if (userRank == UserRanks.Guide)
-                {
-                    UserColor = Main.s_config.GuideColor;
-                }
-                else if (userRank == UserRanks.Legend)
-                {
-                    UserColor = Main.s_config.LegendColor;
-                }
-                else UserColor = Main.s_config.DefaultColor;
-            }
-
-                _backgroundGameObject = this.transform.Find("Canvas/Content/Image").gameObject;
+            else UserColor = Main.s_config.DefaultColor;
+      
+            _backgroundGameObject = this.transform.Find("Canvas/Content/Image").gameObject;
             Component.DestroyImmediate(_backgroundGameObject.GetComponent<UnityEngine.UI.Image>());
 
             //nameplate outline
@@ -114,15 +113,17 @@ namespace CVRNameplates
             _micOnImage.ChangeSpriteFromString(Main.s_config.Js.MicIconOn).color = UserColor;
             MicOn.transform.localPosition = new Vector3(0.944f, 0.39f, 0);
 
-            //Nametags start with mic off icon until updated by event
+            //Nametags start with mic off icon until updated by voice event
             MicOn.SetActive(false);
             MicOff.SetActive(true);
 
-            if (UserColor != Main.s_config.FriendsColor) _friend.enabled = false;
-            else _friend.enabled = true;
-
+            //friend icon off unless account is friend
             if (ABI_RC.Core.InteractionSystem.ViewManager.Instance.FriendList
-                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) == null)
+                    .FirstOrDefault(x => x.UserId == this.transform.parent.gameObject.name) != null)
+            {
+                _friend.enabled = true;
+            } 
+            else
             {
                 _friend.enabled = false;
             }

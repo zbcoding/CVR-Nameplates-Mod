@@ -33,6 +33,7 @@ namespace CVRNameplates
         public const string Dev = "Developer";
         public const string Guide = "Community Guide";
         public const string Legend = "Legend";
+        public const string User = "User";
     }
 
     internal class Config
