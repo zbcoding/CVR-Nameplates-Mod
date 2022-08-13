@@ -58,10 +58,10 @@ namespace CVRNameplates
                     {
                         DefaultColor = new int[] { 1, 128, 255 }, //blue
                         FriendsColor = new int[] { 1, 204, 1 }, //green
-                        ModColor = new int[] { 233, 1, 1 }, //red
-                        DevColor = new int[] { 229, 17, 15 }, //cvr orange
-                        GuideColor = new int[] { 102, 0, 204 }, //purple
-                        LegendColor = new int[] { 253, 153, 51 }, //orange
+                        ModColor = new int[] { 0, 0, 0 }, //red
+                        DevColor = new int[] { 0, 0, 0 }, //cvr orange
+                        GuideColor = new int[] { 0, 0, 0 }, //purple
+                        LegendColor = new int[] { 0, 0, 0 }, //orange
                         Background = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/namepalte%20(1).png")),
                         Icon = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/iconbackground.png")),
                         MicIconOn = Convert.ToBase64String(wc.DownloadData("https://raw.githubusercontent.com/zbcoding/CVR-Nameplates-Mod/main/Icons/Mic%20On.png")),
